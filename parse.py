@@ -84,6 +84,8 @@ def hyper(i_text: str, spliter="||") -> str:
             rollback = False
         elif i == "=":
             o_text += "<hr />"
+        elif i == "@":
+            o_text += "&#09;"
         elif i == '[':
             mover = True
         elif sup:
@@ -128,7 +130,8 @@ def hyper(i_text: str, spliter="||") -> str:
 
 
 def table(i_str: str) -> str:
-    return "<tr><td>표기능 제공예정<td></tr><br>"
+    return "<tr><th>표기능 제공예정<th></tr><tr><td>" + i_str + "</td></tr>"
 
 
-print(hyper("[/스포일러/||||details||*spoiled*]"))
+if __name__ == "__main__":
+    print(hyper("*Strong*"))
